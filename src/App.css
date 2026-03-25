@@ -1,38 +1,92 @@
-.App {
+/* 🌾 PAGE BACKGROUND */
+/* 🌾 LIGHT AGRI BACKGROUND */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.85),
+      rgba(255, 255, 255, 0.85)
+    ),
+    url("https://images.unsplash.com/photo-1464226184884-fa280b87c399");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* 📦 MAIN CONTAINER (applies to your page automatically) */
+div {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+}
+
+/* 🧾 PAGE TITLE */
+h1 {
+  color: #2e7d32;
   text-align: center;
+  margin-bottom: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 🔹 SECTION HEADINGS */
+h2, h3 {
+  color: #1b5e20;
+  margin-top: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* 📦 CARD STYLE FOR SECTIONS */
+h2, h3, p, button {
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* 🎛 INPUT FIELD */
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+/* 🚚 DELIVERY BUTTONS */
+button {
+  padding: 8px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* 🎯 PRIMARY BUTTON */
+button:hover {
+  transform: scale(1.05);
+}
+
+/* 🌟 SELECT BUTTON */
+button:nth-of-type(1) {
+  background-color: #4caf50;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* 🚜 DRIVER BUTTON */
+button:nth-of-type(2) {
+  background-color: #ff9800;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ✅ CONFIRM BUTTON */
+button:last-of-type {
+  background-color: #2e7d32;
+  color: white;
+}
+
+/* 📦 CARD LOOK */
+body > div {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
 }

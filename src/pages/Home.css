@@ -1,0 +1,50 @@
+.home-container {
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-card {
+  background: rgba(34, 139, 34, 0.85);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  width: 350px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+}
+
+.overlay-card h1 {
+  margin-bottom: 15px;
+}
+
+.overlay-card p {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.primary-btn {
+  background-color: #f4b400;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 20px;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+}
