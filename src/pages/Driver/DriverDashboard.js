@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Driver.css"; // ✅ CSS IMPORT
 
 export default function DriverDashboard({ setPage }) {
   const [available, setAvailable] = useState([]);
@@ -38,26 +39,23 @@ export default function DriverDashboard({ setPage }) {
   };
 
   return (
-    <div style={{
-      padding: "20px",
-      background: "#f1f8e9",
-      minHeight: "100vh"
-    }}>
+    <div className="driver-page"> {/* ✅ APPLY THEME */}
 
-      <h2 style={{ textAlign: "center", color: "#2e7d32" }}>
-        🚜 ಚಾಲಕ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ (Driver Dashboard)
-      </h2>
+      <h2>🚜 ಚಾಲಕ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ (Driver Dashboard)</h2>
 
       {/* 📋 AVAILABLE JOBS */}
       <h3>📋 Available Jobs</h3>
       {available.length === 0 && <p>No jobs available</p>}
 
       {available.map((job, i) => (
-        <div key={i} style={cardStyle}>
+        <div key={i} className="driver-card">
           <p>🚜 {job.name}</p>
           <p>📍 {job.location}</p>
 
-          <button onClick={() => acceptJob(i)}>
+          <button
+            onClick={() => acceptJob(i)}
+            className="driver-btn"
+          >
             ✔ Accept
           </button>
         </div>
@@ -68,10 +66,13 @@ export default function DriverDashboard({ setPage }) {
       {accepted.length === 0 && <p>No accepted jobs</p>}
 
       {accepted.map((job, i) => (
-        <div key={i} style={cardStyle}>
+        <div key={i} className="driver-card">
           <p>🚜 {job.name}</p>
 
-          <button onClick={() => completeJob(i)}>
+          <button
+            onClick={() => completeJob(i)}
+            className="driver-btn"
+          >
             🚚 Complete
           </button>
         </div>
@@ -82,56 +83,38 @@ export default function DriverDashboard({ setPage }) {
       {completed.length === 0 && <p>No completed jobs</p>}
 
       {completed.map((job, i) => (
-        <div key={i} style={cardStyle}>
+        <div key={i} className="driver-card">
           <p>🚜 {job.name}</p>
           <p>✔ Completed</p>
         </div>
       ))}
 
       {/* 🔥 EXTRA FEATURES */}
-      <div style={{ marginTop: "30px" }}>
-        <h3 style={{ color: "#2e7d32" }}>✨ Extra Features</h3>
+      <div className="driver-card">
+        <h3>✨ Extra Features</h3>
 
         <button
           onClick={() => setPage("earnings")}
-          style={extraBtn}
+          className="driver-btn"
         >
           💰 Earnings
         </button>
 
         <button
           onClick={() => setPage("status")}
-          style={extraBtn}
+          className="driver-btn"
         >
           🚚 Driver Status
         </button>
       </div>
 
-      <br />
-      <button onClick={() => setPage("home")}>
+      <button
+        onClick={() => setPage("home")}
+        className="driver-btn"
+      >
         ⬅ Back
       </button>
+
     </div>
   );
 }
-
-// 🎨 STYLE
-const cardStyle = {
-  background: "white",
-  padding: "10px",
-  borderRadius: "8px",
-  marginBottom: "10px",
-  boxShadow: "0px 2px 5px rgba(0,0,0,0.1)"
-};
-
-const extraBtn = {
-  display: "block",
-  marginTop: "10px",
-  padding: "10px",
-  width: "200px",
-  background: "#2e7d32",
-  color: "white",
-  border: "none",
-  borderRadius: "6px",
-  cursor: "pointer"
-};

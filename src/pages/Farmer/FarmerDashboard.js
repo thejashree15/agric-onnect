@@ -1,6 +1,7 @@
 import React from "react";
+import "./Farmer.css"; // ✅ import CSS
 
-export default function FarmerDashboard({ setPage, lang = "en" }) {
+export default function FarmerDashboard({ setPage, setRole, lang = "en" }) {
 
   const text = {
     en: {
@@ -10,7 +11,8 @@ export default function FarmerDashboard({ setPage, lang = "en" }) {
       ai: "AI Suggestion",
       chat: "Chat with AI",
       summary: "Summary",
-      notifications: "Notifications"
+      notifications: "Notifications",
+      logout: "Logout"
     },
     kn: {
       title: "ರೈತ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
@@ -19,74 +21,77 @@ export default function FarmerDashboard({ setPage, lang = "en" }) {
       ai: "AI ಸಲಹೆ",
       chat: "AI ಜೊತೆ ಮಾತಾಡಿ",
       summary: "ಸಾರಾಂಶ",
-      notifications: "ಅಧಿಸೂಚನೆಗಳು"
+      notifications: "ಅಧಿಸೂಚನೆಗಳು",
+      logout: "ಲಾಗ್ ಔಟ್"
     }
   };
 
   return (
-    <div className="min-h-screen p-6 bg-green-50">
+    <div className="farmer-page">
 
-      <h1 className="text-3xl font-bold text-center text-green-800 mb-6">
-        🌾 {text[lang].title}
-      </h1>
+      {/* 🔴 LOGOUT BUTTON */}
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <button
+          onClick={() => setRole("")}
+          className="farmer-btn"
+        >
+          🚪 {text[lang].logout}
+        </button>
+      </div>
+
+      <h1>🌾 {text[lang].title}</h1>
 
       {/* MAIN GRID */}
-      <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+      <div className="farmer-card">
 
         <button
           onClick={() => setPage("search")}
-          className="bg-white p-4 rounded shadow hover:bg-green-100"
+          className="farmer-btn"
         >
           🔍 {text[lang].search}
         </button>
 
         <button
           onClick={() => setPage("mybookings")}
-          className="bg-white p-4 rounded shadow hover:bg-green-100"
+          className="farmer-btn"
         >
           📋 {text[lang].bookings}
         </button>
 
         <button
           onClick={() => setPage("ai")}
-          className="bg-white p-4 rounded shadow hover:bg-green-100"
+          className="farmer-btn"
         >
           🤖 {text[lang].ai}
         </button>
 
         <button
           onClick={() => setPage("chat")}
-          className="bg-white p-4 rounded shadow hover:bg-green-100"
+          className="farmer-btn"
         >
           💬 {text[lang].chat}
         </button>
 
       </div>
 
-      {/* 🔥 EXTRA FEATURES SECTION */}
-      <div className="mt-8 max-w-md mx-auto">
+      {/* EXTRA FEATURES */}
+      <div className="farmer-card">
 
-        <h2 className="text-xl font-semibold mb-3 text-green-700 text-center">
-          ✨ Extra Features
-        </h2>
+        <h2>✨ Extra Features</h2>
 
-        <div className="grid grid-cols-2 gap-4">
+        <button
+          onClick={() => setPage("summary")}
+          className="farmer-btn"
+        >
+          📊 {text[lang].summary}
+        </button>
 
-          <button
-            onClick={() => setPage("summary")}
-            className="bg-white p-4 rounded shadow hover:bg-green-100"
-          >
-            📊 {text[lang].summary}
-          </button>
-
-          <button
-            onClick={() => setPage("notifications")}
-            className="bg-white p-4 rounded shadow hover:bg-green-100"
-          >
-            🔔 {text[lang].notifications}
-          </button>
-
-        </div>
+        <button
+          onClick={() => setPage("notifications")}
+          className="farmer-btn"
+        >
+          🔔 {text[lang].notifications}
+        </button>
 
       </div>
 

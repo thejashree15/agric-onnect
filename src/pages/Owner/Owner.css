@@ -1,0 +1,80 @@
+/* 🏢 OWNER PAGE - TRACTOR LIGHT THEME (PERFECT BALANCE) */
+.owner-page {
+  display: flex;
+  min-height: 100vh;
+
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.75)
+    ),
+    url("https://th.bing.com/th/id/OIP.hC4vUjSe768Fr3r9pG9N2wHaDt?w=328&h=175&c=7&r=0&o=7&pid=1.7&rm=3");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 📌 SIDEBAR */
+.owner-sidebar {
+  width: 220px;
+  background: rgba(33, 150, 243, 0.95);
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+/* 🧾 MAIN CONTENT */
+.owner-main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* 📦 GRID LAYOUT */
+.owner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* 📦 CARD STYLE */
+.owner-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.owner-card:hover {
+  transform: translateY(-5px);
+}
+
+/* 🔵 BUTTON STYLE */
+.owner-btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.owner-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(33,150,243,0.3);
+}
+
+/* 🏷 HEADINGS */
+h1 {
+  color: #2e7d32;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
