@@ -1,18 +1,49 @@
 import React from "react";
 
-export default function AvailableJobs({ setPage }) {
+export default function DriverDashboard({ setPage }) {
   return (
-    <div>
-      <h2>📥 Available Jobs</h2>
+    <div style={{
+      minHeight: "100vh",
+      background: "#f1f8e9",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center"
+    }}>
+      <h2 style={{ color: "#2e7d32" }}>
+        🚜 ಚಾಲಕ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ (Driver Dashboard)
+      </h2>
 
-      <p>Job 1 - Tractor Work</p>
-      <button onClick={() => alert("Accepted")}>Accept</button>
+      <div style={{ marginTop: "20px" }}>
 
-      <p>Job 2 - Harvest Work</p>
-      <button onClick={() => alert("Accepted")}>Accept</button>
+        <button style={btn} onClick={() => setPage("jobs")}>
+          📋 Available Jobs
+        </button>
 
-      <br/><br/>
-      <button onClick={() => setPage("tasks")}>Go to Tasks</button>
+        <button style={btn} onClick={() => setPage("myjobs")}>
+          📦 My Jobs
+        </button>
+
+        <button style={btn} onClick={() => setPage("completed")}>
+          ✅ Completed Jobs
+        </button>
+
+      </div>
+
+      <br />
+      <button onClick={() => setPage("home")}>⬅ Back</button>
     </div>
   );
 }
+
+const btn = {
+  display: "block",
+  margin: "10px",
+  padding: "12px",
+  width: "200px",
+  background: "#2e7d32",
+  color: "white",
+  border: "none",
+  borderRadius: "8px",
+  cursor: "pointer"
+};

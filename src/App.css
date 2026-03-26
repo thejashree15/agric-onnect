@@ -1,92 +1,153 @@
-/* 🌾 PAGE BACKGROUND */
-/* 🌾 LIGHT AGRI BACKGROUND */
+/* 🌿 GLOBAL AGRI LIGHT THEME */
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #f6fbf6; /* soft light green */
+}
 
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.85),
-      rgba(255, 255, 255, 0.85)
+/* 🌾 HERO SECTION (TOP BANNER) */
+.hero {
+  height: 60vh;
+  background: linear-gradient(
+      rgba(46, 125, 50, 0.6),
+      rgba(46, 125, 50, 0.6)
     ),
-    url("https://images.unsplash.com/photo-1464226184884-fa280b87c399");
+    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef");
 
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
 
-/* 📦 MAIN CONTAINER (applies to your page automatically) */
-div {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 30px;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-/* 🧾 PAGE TITLE */
-h1 {
-  color: #2e7d32;
+  color: white;
   text-align: center;
-  margin-bottom: 30px;
 }
 
-/* 🔹 SECTION HEADINGS */
-h2, h3 {
+/* 🌟 HERO BUTTONS */
+.hero button {
+  margin: 10px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 🌟 HERO PRIMARY BUTTON */
+.btn-primary {
+  background: #f4b400;
+  color: black;
+}
+
+/* 🌟 HERO SECONDARY BUTTON */
+.btn-outline {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+/* 🌾 MAIN PAGE CONTAINER */
+.page-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 25px;
+  min-height: 100vh;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  border-radius: 20px;
+  box-shadow: 0px 10px 25px rgba(0, 100, 0, 0.15);
+}
+
+/* 🌾 SECTION (LIKE WEBSITE BLOCKS) */
+.section {
+  padding: 30px 10px;
+  text-align: center;
+}
+
+/* 🌾 HEADINGS */
+h1 {
   color: #1b5e20;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2, h3 {
+  color: #2e7d32;
   margin-top: 20px;
 }
 
-/* 📦 CARD STYLE FOR SECTIONS */
-h2, h3, p, button {
-  margin-bottom: 10px;
+/* 🌿 CARD STYLE */
+.card {
+  background: linear-gradient(to bottom, #ffffff, #f9fff9);
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 12px;
+
+  border-left: 5px solid #4caf50;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* 🎛 INPUT FIELD */
+/* 🌱 INPUT FIELD */
 input {
   width: 100%;
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #c8e6c9;
   margin-top: 10px;
+  background: #f9fff9;
 }
 
-/* 🚚 DELIVERY BUTTONS */
+/* 🌱 BUTTON BASE */
 button {
-  padding: 8px 15px;
+  padding: 10px 15px;
   margin: 5px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
 }
 
-/* 🎯 PRIMARY BUTTON */
-button:hover {
+/* 🌿 PRIMARY BUTTON */
+.btn {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,128,0,0.3);
+}
+
+/* 🌼 SECONDARY BUTTON */
+.btn-secondary {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+}
+
+.btn-secondary:hover {
+  background-color: #a5d6a7;
   transform: scale(1.05);
 }
 
-/* 🌟 SELECT BUTTON */
-button:nth-of-type(1) {
-  background-color: #4caf50;
+/* 🚜 ORANGE BUTTON */
+.btn-orange {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
   color: white;
 }
 
-/* 🚜 DRIVER BUTTON */
-button:nth-of-type(2) {
-  background-color: #ff9800;
-  color: white;
+.btn-orange:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(255,140,0,0.3);
 }
 
-/* ✅ CONFIRM BUTTON */
-button:last-of-type {
-  background-color: #2e7d32;
-  color: white;
-}
-
-/* 📦 CARD LOOK */
-body > div {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 15px;
-  box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+/* 🌾 TEXT */
+p {
+  margin-bottom: 10px;
 }

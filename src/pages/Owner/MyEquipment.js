@@ -1,53 +1,54 @@
 import React, { useEffect, useState } from "react";
 
-function MyEquipment({ setPage }) {
-  const [equipmentList, setEquipmentList] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function MyEquipment({ setPage }) {
+  const [equipment, setEquipment] = useState([]);
 
-  // Fetch data from backend
   useEffect(() => {
-    fetch("http://localhost:5000/api/equipment")
-      .then((res) => res.json())
-      .then((data) => {
-        setEquipmentList(data);
-        setLoading(false);
+    // 🔥 Fetch from backend
+    fetch("http://localhost:5001/api/equipment")
+      .then(res => res.json())
+      .then(data => {
+        const local = JSON.parse(localStorage.getItem("equipment")) || [];
+
+        // 🔥 Merge backend + local
+        setEquipment([...data, ...local]);
       })
-      .catch((err) => {
-        console.error("Error:", err);
-        setLoading(false);
+      .catch(() => {
+        // 🔥 If backend fails → only local
+        const local = JSON.parse(localStorage.getItem("equipment")) || [];
+        setEquipment(local);
       });
   }, []);
 
   return (
-    <div className="container">
-      <h2>My Equipment</h2>
+    <div style={{
+      padding: "20px",
+      background: "#f1f8e9",
+      minHeight: "100vh"
+    }}>
+      <h2 style={{ textAlign: "center", color: "#2e7d32" }}>
+        📦 ನನ್ನ ಉಪಕರಣಗಳು (My Equipment)
+      </h2>
 
-      {/* Loading */}
-      {loading && <p>Loading...</p>}
+      {equipment.length === 0 && <p>No equipment added</p>}
 
-      {/* No Data */}
-      {!loading && equipmentList.length === 0 && (
-        <p>No equipment found</p>
-      )}
+      {equipment.map((item, i) => (
+        <div key={i} style={{
+          background: "white",
+          padding: "15px",
+          borderRadius: "10px",
+          marginBottom: "10px",
+          boxShadow: "0px 2px 5px rgba(0,0,0,0.1)"
+        }}>
+          <p>🚜 <b>{item.name}</b></p>
+          <p>💰 ₹{item.price}</p>
+          <p>📍 {item.location}</p>
+        </div>
+      ))}
 
-      {/* Equipment List */}
-      <div className="grid">
-        {equipmentList.map((item) => (
-          <div className="card" key={item._id}>
-            <h3>{item.name}</h3>
-            <p><b>Type:</b> {item.type}</p>
-            <p><b>Price:</b> ₹{item.price}</p>
-          </div>
-        ))}
-      </div>
-
-      <br />
-
-      <button className="back-btn" onClick={() => setPage("")}>
-        ⬅ Back
+      <button onClick={() => setPage("owner")}>
+        ⬅ ಹಿಂದಕ್ಕೆ (Back)
       </button>
     </div>
   );
 }
-
-export default MyEquipment;

@@ -15,6 +15,7 @@ function Home() {
           Farmers boost productivity without ownership.
         </p>
 
+        {/* MAIN BUTTON */}
         <button
           className="primary-btn"
           onClick={() => navigate("/select-role")}
@@ -25,6 +26,23 @@ function Home() {
         <button className="secondary-btn">
           Learn More
         </button>
+
+        {/* 🔥 EXTRA FEATURES SECTION */}
+        <div style={{ marginTop: "20px" }}>
+          <h3>✨ Extra Features</h3>
+
+          <button onClick={() => navigate("/summary")}>
+            📊 Booking Summary
+          </button>
+
+          <button onClick={() => navigate("/notifications")}>
+            🔔 Notifications
+          </button>
+
+          <button onClick={() => navigate("/status")}>
+            🚚 Driver Status
+          </button>
+        </div>
       </div>
     </div>
   );

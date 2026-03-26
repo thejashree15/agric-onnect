@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 
+// ✅ EXTRA FEATURES
+import BookingSummary from "./pages/Extra/BookingSummary";
+import Notifications from "./pages/Extra/Notifications";
+import Earnings from "./pages/Driver/Earnings";
+import DriverStatus from "./pages/Driver/Driverstatus";
+
 // Farmer
 import FarmerDashboard from "./pages/Farmer/FarmerDashboard";
 import SearchEquipment from "./pages/Farmer/SearchEquipment";
 import AIRecommendation from "./pages/Farmer/AIRecommendation";
 import MyBookings from "./pages/Farmer/MyBookings";
 import BookingPage from "./pages/Farmer/BookingPage";
-import ChatBot from "./pages/Farmer/ChatBot"; // ✅ ADDED
+import ChatBot from "./pages/Farmer/ChatBot";
 
 // Owner
 import OwnerDashboard from "./pages/Owner/OwnerDashboard";
@@ -21,12 +27,23 @@ function App() {
   const [role, setRole] = useState("");
   const [page, setPage] = useState("home");
 
-  // ✅ FARMER ROUTING (FINAL + CHATBOT ADDED)
+  // ================= FARMER =================
   if (role === "farmer") {
 
-    // 🔥 BOOKING (object-based page)
+    // 🔥 EXTRA FEATURES (ADD HERE ONLY)
+    if (page === "summary") return <BookingSummary setPage={setPage} />;
+    if (page === "notifications") return <Notifications setPage={setPage} />;
+    if (page === "earnings") return <Earnings setPage={setPage} />;
+    if (page === "status") return <DriverStatus setPage={setPage} />;
+
+    // 🔥 BOOKING (OBJECT BASED)
     if (page?.name === "booking") {
       return <BookingPage setPage={setPage} item={page.item} />;
+    }
+
+    // 🔥 PAYMENT (OBJECT BASED)
+    if (page?.name === "payment") {
+      return <Payment setPage={setPage} item={page.item} />;
     }
 
     if (page === "search") {
@@ -38,7 +55,7 @@ function App() {
     }
 
     if (page === "chat") {
-      return <ChatBot setPage={setPage} />;   // ✅ CHATBOT ROUTE
+      return <ChatBot setPage={setPage} />;
     }
 
     if (page === "payment") {
@@ -52,17 +69,22 @@ function App() {
     return <FarmerDashboard setRole={setRole} setPage={setPage} />;
   }
 
-  // OWNER
+  // ================= OWNER =================
   if (role === "owner") {
     return <OwnerDashboard setRole={setRole} />;
   }
 
-  // DRIVER
+  // ================= DRIVER =================
   if (role === "driver") {
-    return <DriverDashboard setRole={setRole} />;
+
+    // 🔥 DRIVER EXTRA FEATURES
+    if (page === "earnings") return <Earnings setPage={setPage} />;
+    if (page === "status") return <DriverStatus setPage={setPage} />;
+
+    return <DriverDashboard setRole={setRole} setPage={setPage} />;
   }
 
-  // 🌾 HOME PAGE
+  // ================= HOME =================
   return (
     <div
       style={{
@@ -111,24 +133,15 @@ function App() {
         </button>
 
         <div style={{ marginTop: "15px" }}>
-          <button
-            onClick={() => setRole("farmer")}
-            style={{ margin: "5px", padding: "8px 12px" }}
-          >
+          <button onClick={() => setRole("farmer")} style={btn}>
             👩‍🌾 Farmer
           </button>
 
-          <button
-            onClick={() => setRole("owner")}
-            style={{ margin: "5px", padding: "8px 12px" }}
-          >
+          <button onClick={() => setRole("owner")} style={btn}>
             👷 Owner
           </button>
 
-          <button
-            onClick={() => setRole("driver")}
-            style={{ margin: "5px", padding: "8px 12px" }}
-          >
+          <button onClick={() => setRole("driver")} style={btn}>
             🚜 Driver
           </button>
         </div>
@@ -136,5 +149,10 @@ function App() {
     </div>
   );
 }
+
+const btn = {
+  margin: "5px",
+  padding: "8px 12px"
+};
 
 export default App;
